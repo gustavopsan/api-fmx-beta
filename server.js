@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('<h1> Server is running </h1>');
+    res.send('<p>Server is running</p>');
 });
 
 app.get('/fm_xxx/:data', (req, res) => {
