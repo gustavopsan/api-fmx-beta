@@ -18,7 +18,11 @@ app.get('/fm_xxx/:data', (req, res) => {
     let data = req.params.data;
     
     sql.query(`SELECT * FROM fmxxx where date= '${data}'`, (error, results) => {
-        if (error) throw error;
+        if (error) {
+            res.json({
+                message: 'O formulário não exixte'
+            });
+        }
         return res.send({data: results[0]});
     });
 });

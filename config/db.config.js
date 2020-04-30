@@ -1,6 +1,6 @@
 module.exports = {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    db: 'fmx'
+    host: 'db4free.net',
+    user: 'gustavosantanaii',
+    password: 'editpro7',
+    db: 'fmx_db'
 };
