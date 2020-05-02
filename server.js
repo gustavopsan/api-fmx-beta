@@ -78,6 +78,10 @@ app.get('/check', (req, res) => {
     };
 });
 
+app.get('/logout', (req, res) => {
+    checker = false;
+});
+
 app.post('/new', (req, res) => {
     
         var dataColeta = req.body.data;
