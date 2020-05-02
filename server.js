@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sql = require('./database.js');
 const cors = require('cors');
+var checker = false;
 
 const app = express();
 
@@ -39,12 +40,14 @@ app.post('/auth', (req, res) => {
             })
         } else {
             if (results.length > 0) {
-                if (password == results[0].password) {
+                if (password === results[0].password) {
+                    checker === true;
                     res.json({
                         status: true,
                         message: 'Login bem sucedido!'
                     })
                 } else {
+                    checker === false;
                     res.json({
                         status: false,
                         message: 'Username e senha não deram match'
@@ -52,6 +55,7 @@ app.post('/auth', (req, res) => {
                 }
             }
             else {
+                checker === false;
                 res.json({
                     status: false,
                     message: 'Username não listado na nossa Base de Dados'
@@ -60,6 +64,18 @@ app.post('/auth', (req, res) => {
         }
         
     });
+});
+
+app.get('/check', (req, res) => {
+    if (checker === true) {
+        res.json({
+            status: true
+        });
+    } else if (checker === false) {
+        res.json({
+            status: false
+        });
+    };
 });
 
 app.post('/new', (req, res) => {
