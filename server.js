@@ -2,7 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sql = require('./database.js');
 const cors = require('cors');
+
 var checker = false;
+var usernameGlobal;
 
 const app = express();
 
@@ -42,6 +44,7 @@ app.post('/auth', (req, res) => {
             if (results.length > 0) {
                 if (password === results[0].password) {
                     checker === true;
+                    usernameGlobal = results[0].first_name;
                     res.json({
                         status: true,
                         message: 'Login bem sucedido!'
@@ -63,6 +66,12 @@ app.post('/auth', (req, res) => {
             }
         }
         
+    });
+});
+
+app.get('/getUser', (res) => {
+    res.json({
+        username: usernameGlobal
     });
 });
 
