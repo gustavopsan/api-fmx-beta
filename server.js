@@ -43,7 +43,7 @@ app.post('/auth', (req, res) => {
         } else {
             if (results.length > 0) {
                 if (password === results[0].password) {
-                    checker === true;
+                    checker = true;
                     usernameGlobal = results[0].first_name;
                     res.json({
                         status: true,
@@ -69,7 +69,7 @@ app.post('/auth', (req, res) => {
     });
 });
 
-app.get('/getUser', (res) => {
+app.get('/getUser', (req, res) => {
     res.json({
         username: usernameGlobal
     });
