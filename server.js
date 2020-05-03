@@ -90,6 +90,9 @@ app.get('/check', (req, res) => {
 app.get('/logout', (req, res) => {
     checker = false;
     usernameGlobal = '';
+    res.json({
+        status: out
+    })
 });
 
 app.post('/new', (req, res) => {
