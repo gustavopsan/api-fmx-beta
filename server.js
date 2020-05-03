@@ -4,7 +4,7 @@ const sql = require('./database.js');
 const cors = require('cors');
 
 var checker = false;
-var usernameGlobal;
+var usernameGlobal = '';
 
 const app = express();
 
@@ -89,6 +89,7 @@ app.get('/check', (req, res) => {
 
 app.get('/logout', (req, res) => {
     checker = false;
+    usernameGlobal = '';
 });
 
 app.post('/new', (req, res) => {
