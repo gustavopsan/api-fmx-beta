@@ -50,7 +50,7 @@ app.post('/auth', (req, res) => {
                         message: 'Login bem sucedido!'
                     })
                 } else {
-                    checker === false;
+                    checker = false;
                     res.json({
                         status: false,
                         message: 'Username e senha não deram match'
@@ -58,7 +58,7 @@ app.post('/auth', (req, res) => {
                 }
             }
             else {
-                checker === false;
+                checker = false;
                 res.json({
                     status: false,
                     message: 'Username não listado na nossa Base de Dados'
